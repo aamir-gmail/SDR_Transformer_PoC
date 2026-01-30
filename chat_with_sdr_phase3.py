@@ -17,7 +17,7 @@ DTYPE = torch.bfloat16
 TEMP = 0.7
 TOP_P = 0.9
 TOP_K = 50
-REP_PENALTY = 1.1  # Lowered slightly for chat (1.2 can be too strict for coding)
+REP_PENALTY = 1.1  # Lowered slightly for chat (1.2 can be too strict for maths)
 MAX_NEW_TOKENS = 250  # Increased for longer answers
 
 
