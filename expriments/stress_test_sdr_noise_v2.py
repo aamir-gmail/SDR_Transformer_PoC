@@ -5,7 +5,7 @@ from difflib import SequenceMatcher
 import random
 import os
 
-# USING v2 AS REQUESTED
+# USING v2 
 from core.modeling_sdr_qwen_full_v2 import SDRQwenForCausalLM
 from core.qwen_sdr_tokeriser_v4 import SDRQwenTokenizer
 
