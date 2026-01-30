@@ -53,10 +53,10 @@ In this repository, we replace the standard dense embedding layer of an LLM with
 This project demonstrates that **Sparse Distributed Representations (SDRs)**—the data format used by the biological neocortex—can successfully replace dense vector embeddings in modern Transformers without sacrificing semantic capability.
 
 By transplanting a generic Qwen 0.5B model with a new "SDR Retina" (Input Layer), we achieved a model that is:
-* **Semantically Competent:** Capable of chat, instruction following, and Python coding.
-* **Mathematically Robust:** Solves arithmetic and logic puzzles (GSM8k).
+* **Semantically Competent:** Capable of general chat and instruction following.
+* **Mathematically Robust:** Solves arithmetic and logic puzzles (via GSM8k training).
 * **Noise Resilient:** Maintains accuracy even with **50% input signal corruption**.
-* **Compression Ready:** Supports **4x Lossless Context Compression** via SDR Superposition.
+* **Compression Verified:** We have experimentally verified the **4x Lossless Context Compression** capability of SDRs (though the current model checkpoint is trained on standard sequential inputs).
 
 ## 2. The Architecture
 Standard Transformers use dense lookup tables (Embeddings) to represent tokens. This project replaces that layer with a mathematical projection:
@@ -80,11 +80,11 @@ Initial versions suffered from "Number Blindness" (seeing "25" as a fuzzy mix of
 * **Phase 3 Training (GSM8k):** Taught the Retina to distinguish multi-digit numbers.
 * **Result:** The model now correctly solves `25 + 25 = 50` and performs multi-step Chain-of-Thought reasoning.
 
-### C. Superposition (The "Unpacking" Test)
-We utilized the **Union Property** of SDRs to pack multiple tokens into a single input vector using rotation-based positional encoding.
-* **Result:** Successfully packed **4 tokens** ("The quick brown fox") into **1 SDR**.
-* **Retrieval:** Achieved **100% Lossless Retrieval** of the original sequence from the single packed vector.
-* **Implication:** Theoretically allows for **4x larger context windows** and **16x faster attention**.
+### C. Superposition (The "Unpacking" Verification)
+We utilized the **Union Property** of SDRs to test packing multiple tokens into a single input vector using rotation-based positional encoding.
+* **Verification:** Successfully packed **4 tokens** ("The quick brown fox") into **1 SDR**.
+* **Retrieval:** Achieved **100% Lossless Retrieval** of the original sequence from the single packed vector using mathematical decoding.
+* **Status:** This property is verified in our experiment scripts. A "Turbo" model trained to read these packed inputs directly is planned for V2.
 
 ## 4. Installation
 
@@ -95,4 +95,3 @@ cd SDR_Transformer_PoC
 
 # 2. Install dependencies
 pip install torch transformers datasets accelerate
-   
