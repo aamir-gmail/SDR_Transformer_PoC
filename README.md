@@ -1,4 +1,5 @@
 # What is a Sparse Distributed Representation (SDR)?
+**Before we get started, I would like to pay my respect and gratitude to Jeff Hawkins https://en.wikipedia.org/wiki/Jeff_Hawkins and his pioneering work in this field. 
 
 **Sparse Distributed Representations (SDRs)** are a data format based on the theoretical operations of the mammalian neocortex. Unlike the dense, continuous vector embeddings used in standard Deep Learning (e.g., Word2Vec, BERT), SDRs use massive, highly sparse binary vectors to encode semantic meaning.
 
